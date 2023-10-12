@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{7CE10858-ABA6-48BC-9179-5E80DC05CAB8}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CSharp__FinalConsoleApp FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSharp_FinalConsoleApp/University.cs">
+    <Files>
+      <File FileName="CSharp_FinalConsoleApp/Program.cs" Line="9" Column="13" />
+      <File FileName="CSharp_FinalConsoleApp/Employee.cs" Line="24" Column="2" />
+      <File FileName="CSharp_FinalConsoleApp/EmployeeType.cs" Line="8" Column="10" />
+      <File FileName="CSharp_FinalConsoleApp/Student.cs" Line="14" Column="18" />
+      <File FileName="CSharp_FinalConsoleApp/University.cs" Line="43" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CSharp_FinalConsoleApp" expanded="True">
+            <Node name="CSharp_FinalConsoleApp" expanded="True">
+              <Node name="University.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

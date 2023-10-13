@@ -1,0 +1,15 @@
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/bin/Debug/net7.0/CSharp_FinalConsoleApp
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/bin/Debug/net7.0/CSharp_FinalConsoleApp.deps.json
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/bin/Debug/net7.0/CSharp_FinalConsoleApp.runtimeconfig.json
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/bin/Debug/net7.0/CSharp_FinalConsoleApp.dll
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/bin/Debug/net7.0/CSharp_FinalConsoleApp.pdb
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.csproj.AssemblyReference.cache
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.AssemblyInfoInputs.cache
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.AssemblyInfo.cs
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.csproj.CoreCompileInputs.cache
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.dll
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/refint/CSharp_FinalConsoleApp.dll
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.pdb
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/CSharp_FinalConsoleApp.genruntimeconfig.cache
+/Users/macbookpro2015/Projects/CSharp_FinalConsoleApp/CSharp_FinalConsoleApp/obj/Debug/net7.0/ref/CSharp_FinalConsoleApp.dll

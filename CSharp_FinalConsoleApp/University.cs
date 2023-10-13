@@ -6,8 +6,8 @@ namespace CSharp_FinalConsoleApp
 		public string Name { get; set; }
 		public int WorkerLimit { get; set; }
 		public int SalaryLimit { get; set; }
-		public List<Employee> Employees;
-		public List<Student> Students;
+		public List<Employee> Employees { get; set; }
+		public List<Student> Students { get; set; }
 
         private List<Student> filteredStudents;
 
@@ -43,59 +43,42 @@ namespace CSharp_FinalConsoleApp
         {
             int sum = 0;
             int avarage;
-
-            if (Students.Count > 0)
+            foreach (var student in Students)
             {
-                foreach (var student in Students)
-                {
-                    sum += student.Point;
-                }
-                avarage = sum / Students.Count;
-                Console.WriteLine($"Avarage of student's point: {avarage}");
+                sum += student.Point;
             }
-            else
-            {
-                Console.WriteLine("You are not aded any student yet :/");
-            }
-
+            avarage = sum / Students.Count;
+            Console.WriteLine($"Avarage of student's point: {avarage}");
         }
 
-        public void CalcStudentsAverage(string groupNo)
+        public void CalcStudentsAverage(GroupType groupType)
         {
             int sum = 0;
             int avarage;
 
-            if(Students.Count > 0)
+ 
+            foreach (var student in Students)
             {
-                
-                foreach (var student in Students)
+                if(student.GroupType == groupType)
                 {
-                    if(student.GroupNo == groupNo)
-                    {
-                        filteredStudents.Add(student);
-                    }
+                    filteredStudents.Add(student);
+                }
+            }
+
+            if (filteredStudents.Count > 0)
+            {
+                foreach (var student in filteredStudents)
+                {
+                    sum += student.Point;
                 }
 
-                if (filteredStudents.Count > 0)
-                {
-                    foreach (var student in filteredStudents)
-                    {
-                        sum += student.Point;
-                    }
+                avarage = sum / filteredStudents.Count;
 
-                    avarage = sum / filteredStudents.Count;
-
-                    Console.WriteLine($"Avarage of {groupNo} - student's point: {avarage}");
-                }
-                else
-                {
-                    Console.WriteLine("You are not aded any student with this group number yet :/");
-                }
-
+                Console.WriteLine($"Avarage of {groupType} - student's point: {avarage}");
             }
             else
             {
-                Console.WriteLine("You are not aded any student yet :/");
+                Console.WriteLine("You are not aded any student with this group number yet :/");
             }
         }
 
@@ -149,28 +132,27 @@ namespace CSharp_FinalConsoleApp
 
         }
 
-        public void UpdateStudent(string employeeNo, string position, int salary)
+        public void UpdateStudent(string groupNo, GroupType groupType)
         {
             bool isAlreadyExist = false;
 
 
-            foreach (var emp in Employees)
+            foreach (var stu in Students)
             {
-                if (emp.No == employeeNo)
+                if (stu.GroupNo == groupNo)
                 {
                     isAlreadyExist = true;
 
-                    Console.WriteLine($"{emp.No}. {emp.FullName} - {emp.Salary} - {emp.DeparmentName}");
-                    emp.Position = position;
-                    emp.Salary = salary;
+                    Console.WriteLine($"{stu.GroupNo}. {stu.FullName} - {stu.GroupType} ");
+                    stu.GroupType = groupType;
 
-                    Console.WriteLine($"{emp.No}. {emp.FullName} - {emp.Salary} - {emp.DeparmentName}");
+                    Console.WriteLine($"{stu.GroupNo}. {stu.FullName} - {stu.GroupType}");
                 }
             }
 
             if (!isAlreadyExist)
             {
-                Console.WriteLine("You are not added any employee with this no :/");
+                Console.WriteLine("You are not added any student with this groupNo :/");
             }
 
         }

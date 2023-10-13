@@ -8,43 +8,46 @@ namespace CSharp_FinalConsoleApp
         static void Main(string[] args)
         {
             University university = new University("Harvard", 3, 2500);
-            int selectedItem = ShowMenu();
 
-            switch (selectedItem)
-            {
-                case 1: // Show students
-                    ShowStudent(university.Students);
-                    break;
-                case 2: // Show students with group number
-                    ShowStudentByGroupType(university.Students);
-                    break;
-                case 3: // Add student
-                    university.AddStudent(AddStudent());
-                    break;
-                case 4: // Update student
-                    break;
-                case 5: // Show avarage point of students
-                    break;
-                case 6: // Show employees list
-                    break;
-                case 7: // Show employees in university
-                    break;
-                case 8: // Add employee
-                    break;
-                case 9: // Update employee
-                    break;
-                case 10: // Delece employee
-                    break;
-                case 11: // Search employee
-                    break;
-                case 12: // Search student
-                    break;
-                default: // Exit
-                    Console.WriteLine("END");
-                    break;
-            }
+            GetAvarageOfStudents(university);
+            //int selectedItem = ShowMenu();
 
-            AddStudent();
+            //switch (selectedItem)
+            //{
+            //    case 1: // Show students
+            //        ShowStudent(university.Students);
+            //        break;
+            //    case 2: // Show students with group number
+            //        ShowStudentByGroupType(university.Students);
+            //        break;
+            //    case 3: // Add student
+            //        university.AddStudent(AddStudent());
+            //        break;
+            //    case 4: // Update student
+            //        university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
+            //        break;
+            //    case 5: // Show avarage point of students
+            //        GetAvarageOfStudents(university);
+            //        break;
+            //    case 6: // Show employees list
+            //        break;
+            //    case 7: // Show employees in university
+            //        break;
+            //    case 8: // Add employee
+            //        break;
+            //    case 9: // Update employee
+            //        break;
+            //    case 10: // Delece employee
+            //        break;
+            //    case 11: // Search employee
+            //        break;
+            //    case 12: // Search student
+            //        break;
+            //    default: // Exit
+            //        Console.WriteLine("END");
+            //        break;
+            //}
+
             Console.ReadLine();
         }
 
@@ -162,16 +165,8 @@ namespace CSharp_FinalConsoleApp
 
             } while (!IsFullNameIsTrue);
 
-
-            string groupTypeStr;
-            GroupType groupType;
-            do
-            {
-                Console.WriteLine("Enter the group type(Programming, Design, System) of student: ");
-                groupTypeStr = Console.ReadLine();
-            } while (!Enum.TryParse(groupTypeStr, out groupType));
-
-
+            GroupType groupType = GetStudentGroupType();
+            
             string pointStr;
             int point;
             do
@@ -185,6 +180,73 @@ namespace CSharp_FinalConsoleApp
             return student;
         }
 
+        public static string GetStudentGroupNo()
+        {
+            Console.WriteLine("You select update student. Please enter the groupNo of student for update");
 
+            string groupNo = Console.ReadLine();
+
+            return groupNo;
+            
+            
+        }
+
+        public static GroupType GetStudentGroupType()
+        {
+            string groupTypeStr;
+            GroupType groupType;
+            do
+            {
+                Console.WriteLine("Enter the group type(Programming, Design, System) of student: ");
+                groupTypeStr = Console.ReadLine();
+            } while (!Enum.TryParse(groupTypeStr, out groupType));
+
+            return groupType;
+        }
+
+        public static void GetAvarageOfStudents(University university)
+        {
+            if(university.Students.Count > 0)
+            {
+                Console.WriteLine("You select show avarage of students. Do you want all stundets' avarage(a) or spesific students avarage(b)?");
+                string enteredLetter;
+                do
+                {
+                    Console.WriteLine("Select a or b:");
+                    enteredLetter = Console.ReadLine();
+                } while (!(enteredLetter == "a" || enteredLetter == "b"));
+
+                if(enteredLetter == "a")
+                {
+                    university.CalcStudentsAverage();
+                }else if(enteredLetter == "b")
+                {
+                    GroupType groupType = GetStudentGroupType();
+                    university.CalcStudentsAverage(groupType);
+                }
+            }
+            else
+            {
+                Console.WriteLine("You are not added any employee yet!");
+            }
+        }
+
+        public static DeparmentType GetDeparmentTypeOfEmployee()
+        {
+            string deparmentTypeStr;
+            DeparmentType deparmentType;
+            do
+            {
+                Console.WriteLine("Enter the group type(Programming, Design, System) of student: ");
+                deparmentTypeStr = Console.ReadLine();
+            } while (!Enum.TryParse(deparmentTypeStr, out deparmentType));
+
+            return deparmentType;
+        }
+
+        public static void ShowEmployees(List<Employee> employees)
+        {
+
+        }
     }
 }

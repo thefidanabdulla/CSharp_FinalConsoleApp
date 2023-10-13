@@ -3,18 +3,18 @@ namespace CSharp_FinalConsoleApp
 {
 	public class Student
 	{
-		private int _no = 1000;
-		public string No { get; set; }
+		private int _no = 100;
 		public string FullName { get; set; }
-		public StudentGroup GroupNo { get; set; }
+		public GroupType GroupType { get; set; }
+		public string GroupNo { get; set; }
 		public int Point { get; set; }
 
-		public Student(string fullName, StudentGroup groupNo, int point)
+		public Student(string fullName, int point, GroupType groupType)
 		{
 			FullName = fullName;
-			GroupNo = groupNo;
 			Point = point;
-			No = $"{FullName[0]}{FullName[1]}{_no}";
+			GroupType = groupType;
+			GroupNo = $"{GroupType.ToString()[0]}{GroupType.ToString()[1]}{_no}";
 		}
 	}
 }

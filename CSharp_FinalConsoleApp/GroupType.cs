@@ -1,11 +1,11 @@
 ﻿using System;
 namespace CSharp_FinalConsoleApp
 {
-	public enum StudentGroup
+	public enum GroupType
 	{
-		A,
-		B,
-		C
+		Programming,
+		Design,
+		System
 	}
 }
 

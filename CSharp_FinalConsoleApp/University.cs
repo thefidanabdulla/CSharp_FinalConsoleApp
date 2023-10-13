@@ -60,7 +60,7 @@ namespace CSharp_FinalConsoleApp
 
         }
 
-        public void CalcStudentsAverage(int groupNo)
+        public void CalcStudentsAverage(string groupNo)
         {
             int sum = 0;
             int avarage;

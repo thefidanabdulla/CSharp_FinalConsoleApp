@@ -8,45 +8,46 @@ namespace CSharp_FinalConsoleApp
         static void Main(string[] args)
         {
             University university = new University("Harvard", 3, 2500);
+             
 
             GetAvarageOfStudents(university);
-            //int selectedItem = ShowMenu();
+            int selectedItem = ShowMenu();
 
-            //switch (selectedItem)
-            //{
-            //    case 1: // Show students
-            //        ShowStudent(university.Students);
-            //        break;
-            //    case 2: // Show students with group number
-            //        ShowStudentByGroupType(university.Students);
-            //        break;
-            //    case 3: // Add student
-            //        university.AddStudent(AddStudent());
-            //        break;
-            //    case 4: // Update student
-            //        university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
-            //        break;
-            //    case 5: // Show avarage point of students
-            //        GetAvarageOfStudents(university);
-            //        break;
-            //    case 6: // Show employees list
-            //        break;
-            //    case 7: // Show employees in university
-            //        break;
-            //    case 8: // Add employee
-            //        break;
-            //    case 9: // Update employee
-            //        break;
-            //    case 10: // Delece employee
-            //        break;
-            //    case 11: // Search employee
-            //        break;
-            //    case 12: // Search student
-            //        break;
-            //    default: // Exit
-            //        Console.WriteLine("END");
-            //        break;
-            //}
+            switch (selectedItem)
+            {
+                case 1: // Show students
+                    ShowStudent(university.Students);
+                    break;
+                case 2: // Show students with group number
+                    ShowStudentByGroupType(university.Students);
+                    break;
+                case 3: // Add student
+                    university.AddStudent(AddStudent());
+                    break;
+                case 4: // Update student
+                    university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
+                    break;
+                case 5: // Show avarage point of students
+                    GetAvarageOfStudents(university);
+                    break;
+                case 6: // Show employees list
+                    break;
+                case 7: // Show employees in university
+                    break;
+                case 8: // Add employee
+                    break;
+                case 9: // Update employee
+                    break;
+                case 10: // Delece employee
+                    break;
+                case 11: // Search employee
+                    break;
+                case 12: // Search student
+                    break;
+                default: // Exit
+                    Console.WriteLine("END");
+                    break;
+            }
 
             Console.ReadLine();
         }

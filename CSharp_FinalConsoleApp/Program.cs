@@ -8,46 +8,54 @@ namespace CSharp_FinalConsoleApp
         static void Main(string[] args)
         {
             University university = new University("Harvard", 3, 2500);
-             
 
-            GetAvarageOfStudents(university);
-            int selectedItem = ShowMenu();
+            AddEmployee();
+            // AddStudent();
 
-            switch (selectedItem)
-            {
-                case 1: // Show students
-                    ShowStudent(university.Students);
-                    break;
-                case 2: // Show students with group number
-                    ShowStudentByGroupType(university.Students);
-                    break;
-                case 3: // Add student
-                    university.AddStudent(AddStudent());
-                    break;
-                case 4: // Update student
-                    university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
-                    break;
-                case 5: // Show avarage point of students
-                    GetAvarageOfStudents(university);
-                    break;
-                case 6: // Show employees list
-                    break;
-                case 7: // Show employees in university
-                    break;
-                case 8: // Add employee
-                    break;
-                case 9: // Update employee
-                    break;
-                case 10: // Delece employee
-                    break;
-                case 11: // Search employee
-                    break;
-                case 12: // Search student
-                    break;
-                default: // Exit
-                    Console.WriteLine("END");
-                    break;
-            }
+            //Student student = new Student("Fidan Abdulla", 90, GroupType.Programming);
+            //Employee employee = new Employee("Indian Guy", "Developer", 4000, DeparmentType.IT,EmployeeType.Fulltime);
+
+            //university.AddStudent(student);
+            //university.AddEmployee(employee);
+
+            // int selectedItem = ShowMenu();
+
+            //switch (selectedItem)
+            //{
+            //    case 1: // Show students
+            //        ShowStudent(university.Students);
+            //        break;
+            //    case 2: // Show students with group number
+            //        ShowStudentByGroupType(university.Students);
+            //        break;
+            //    case 3: // Add student
+            //        university.AddStudent(AddStudent());
+            //        break;
+            //    case 4: // Update student
+            //        university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
+            //        break;
+            //    case 5: // Show avarage point of students
+            //        GetAvarageOfStudents(university);
+            //        break;
+            //    case 6: // Show employees list
+            //        ShowEmployees(university.Employees);
+            //        break;
+            //    case 7: // Show employees by deparment
+            //        break;
+            //    case 8: // Add employee
+            //        break;
+            //    case 9: // Update employee
+            //        break;
+            //    case 10: // Delece employee
+            //        break;
+            //    case 11: // Search employee
+            //        break;
+            //    case 12: // Search student
+            //        break;
+            //    default: // Exit
+            //        Console.WriteLine("END");
+            //        break;
+            //}
 
             Console.ReadLine();
         }
@@ -140,15 +148,23 @@ namespace CSharp_FinalConsoleApp
                 {
                     foreach (var word in words)
                     {
-                        Regex regex = new Regex("[^a-zA-Z]");
-                        if (regex.IsMatch(word))
+                        if(word.Length > 2)
                         {
-                            IsWordContainsNumbers = true;
-                            Console.WriteLine("Please just enter letters");
+                            Regex regex = new Regex("[^a-zA-Z]");
+                            if (regex.IsMatch(word))
+                            {
+                                IsWordContainsNumbers = true;
+                                Console.WriteLine("Please just enter letters");
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                            }
                         }
                         else
                         {
-                            Console.WriteLine();
+                            IsWordContainsNumbers = true;
+                            Console.WriteLine("Every word must be contains minimum 3 letters.");
                         }
                     }
                 }
@@ -247,7 +263,140 @@ namespace CSharp_FinalConsoleApp
 
         public static void ShowEmployees(List<Employee> employees)
         {
+            if (employees.Count > 0)
+            {
+                foreach (var emp in employees)
+                {
+                    Console.WriteLine($"{emp.No}. {emp.FullName} {emp.DeparmentName} - {emp.Salary}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You are not added any employee yet;");
+            }
+        }
 
+        public static void ShowEmployeesByDepartment(List<Employee> employees)
+        {
+            if (employees.Count > 0)
+            {
+                string deparmentNameStr;
+                DeparmentType deparmentName;
+                do
+                {
+                    Console.WriteLine("Enter the department type(IT, Maliyye, Marketing) of student: ");
+                    deparmentNameStr = Console.ReadLine();
+                } while (!Enum.TryParse(deparmentNameStr, out deparmentName));
+
+
+                foreach (var emp in employees)
+                {
+                    if (emp.DeparmentName == deparmentName)
+                    {
+                        Console.WriteLine($"{emp.No}. {emp.FullName} {emp.DeparmentName} - {emp.Salary}");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("You are not added any employee yet;");
+            }
+        }
+
+        public static void AddEmployee()
+        {
+            Console.WriteLine("You select add employee;");
+            bool IsFullNameIsTrue = false;
+            string fullName = "";
+            do
+            {
+                Console.WriteLine("Enter the name and surname of student:");
+                bool IsWordContainsNumbers = false;
+                string fullnameStr = Console.ReadLine();
+                string[] words = fullnameStr.Split(' ');
+
+                if (words.Length == 2)
+                {
+                    foreach (var word in words)
+                    {
+                        if (word.Length > 2)
+                        {
+                            Regex regex = new Regex("[^a-zA-Z]");
+                            if (regex.IsMatch(word))
+                            {
+                                IsWordContainsNumbers = true;
+                                Console.WriteLine("Please just enter letters");
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            IsWordContainsNumbers = true;
+                            Console.WriteLine("Every word must be contains minimum 3 letters.");
+                        }
+                    }
+                }
+                else
+                {
+                    IsWordContainsNumbers = true;
+                    Console.WriteLine("You must add name and surname as 2 words.");
+                }
+                if (!IsWordContainsNumbers)
+                {
+                    fullName = fullnameStr;
+                }
+                IsFullNameIsTrue = !IsWordContainsNumbers;
+
+
+            } while (!IsFullNameIsTrue);
+
+            bool IsPositionTrue = false;
+            string position = "";
+            do
+            {
+                Console.WriteLine("Enter the position of employee");
+                bool IsWordContainsNumbers = false;
+                string postionStr = Console.ReadLine();
+                
+                        if (postionStr.Length > 2)
+                        {
+                            Regex regex = new Regex("[^a-zA-Z]");
+                            if (regex.IsMatch(postionStr))
+                            {
+                                IsWordContainsNumbers = true;
+                                Console.WriteLine("Please just enter letters");
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            IsWordContainsNumbers = true;
+                            Console.WriteLine("Position must be contains minimum 3 letters.");
+                        }
+               
+                if (!IsWordContainsNumbers)
+                {
+                    position = postionStr;
+                }
+                IsPositionTrue = !IsWordContainsNumbers;
+
+
+            } while (!IsPositionTrue);
+
+            string salaryStr;
+            int salary;
+            do
+            {
+                Console.WriteLine("Enter the salary of employee.");
+                salaryStr = Console.ReadLine();
+            } while (!int.TryParse(salaryStr, out salary));
+            
         }
     }
 }

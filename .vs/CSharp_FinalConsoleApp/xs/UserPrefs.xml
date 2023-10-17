@@ -1,22 +1,17 @@
 ﻿<Properties StartupConfiguration="{7CE10858-ABA6-48BC-9179-5E80DC05CAB8}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.CSharp__FinalConsoleApp PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CSharp_FinalConsoleApp/Program.cs">
     <Files>
-      <File FileName="CSharp_FinalConsoleApp/Program.cs" Line="207" Column="71" />
-      <File FileName="CSharp_FinalConsoleApp/Employee.cs" Line="22" Column="4" />
-      <File FileName="CSharp_FinalConsoleApp/Student.cs" Line="17" Column="26" />
+      <File FileName="CSharp_FinalConsoleApp/Program.cs" Line="393" Column="1" />
+      <File FileName="CSharp_FinalConsoleApp/Employee.cs" Line="1" Column="1" />
+      <File FileName="CSharp_FinalConsoleApp/Student.cs" Line="1" Column="1" />
       <File FileName="CSharp_FinalConsoleApp/University.cs" Line="10" Column="46" />
-      <File FileName="CSharp_FinalConsoleApp/GroupType.cs" Line="6" Column="14" />
+      <File FileName="CSharp_FinalConsoleApp/GroupType.cs" />
+      <File FileName="CSharp_FinalConsoleApp/DeparmentType.cs" Line="6" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CSharp_FinalConsoleApp">
+          <Node name="CSharp_FinalConsoleApp" expanded="True">
             <Node name="CSharp_FinalConsoleApp">
               <Node name="Program.cs" selected="True" />
             </Node>
@@ -25,5 +20,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CSharp__FinalConsoleApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

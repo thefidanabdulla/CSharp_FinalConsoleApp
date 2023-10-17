@@ -9,53 +9,57 @@ namespace CSharp_FinalConsoleApp
         {
             University university = new University("Harvard", 3, 2500);
 
-            AddEmployee();
-            // AddStudent();
 
             //Student student = new Student("Fidan Abdulla", 90, GroupType.Programming);
-            //Employee employee = new Employee("Indian Guy", "Developer", 4000, DeparmentType.IT,EmployeeType.Fulltime);
+            //Employee employee = new Employee("Indian Guy", "Developer", 4000, DeparmentType.IT, EmployeeType.Fulltime);
 
             //university.AddStudent(student);
             //university.AddEmployee(employee);
 
-            // int selectedItem = ShowMenu();
+            int selectedItem = ShowMenu();
 
-            //switch (selectedItem)
-            //{
-            //    case 1: // Show students
-            //        ShowStudent(university.Students);
-            //        break;
-            //    case 2: // Show students with group number
-            //        ShowStudentByGroupType(university.Students);
-            //        break;
-            //    case 3: // Add student
-            //        university.AddStudent(AddStudent());
-            //        break;
-            //    case 4: // Update student
-            //        university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
-            //        break;
-            //    case 5: // Show avarage point of students
-            //        GetAvarageOfStudents(university);
-            //        break;
-            //    case 6: // Show employees list
-            //        ShowEmployees(university.Employees);
-            //        break;
-            //    case 7: // Show employees by deparment
-            //        break;
-            //    case 8: // Add employee
-            //        break;
-            //    case 9: // Update employee
-            //        break;
-            //    case 10: // Delece employee
-            //        break;
-            //    case 11: // Search employee
-            //        break;
-            //    case 12: // Search student
-            //        break;
-            //    default: // Exit
-            //        Console.WriteLine("END");
-            //        break;
-            //}
+            switch (selectedItem)
+            {
+                case 1: // Show students
+                    ShowStudent(university.Students);
+                    break;
+                case 2: // Show students with group number
+                    ShowStudentByGroupType(university.Students);
+                    break;
+                case 3: // Add student
+                    university.AddStudent(AddStudent());
+                    break;
+                case 4: // Update student
+                    university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
+                    break;
+                case 5: // Show avarage point of students
+                    GetAvarageOfStudents(university);
+                    break;
+                case 6: // Show employees list
+                    ShowEmployees(university.Employees);
+                    break;
+                case 7: // Show employees by deparment
+                    ShowEmployeesByDepartment(university.Employees);
+                    break;
+                case 8: // Add employee
+                    university.AddEmployee(AddEmployee());
+                    break;
+                case 9: // Update employee
+                    university.UpdateEmployee(GetEmployeeNo(), GetEmployeePosition(), GetEmployeeSalary());
+                    break;
+                case 10: // Delete employee
+                    university.DeleteEmployee(GetEmployeeNo());
+                    break;
+                case 11: // Search employee
+                    SearchEmployees(university.Employees);
+                    break;
+                case 12: // Search student
+                    SearchStudents(university.Students);
+                    break;
+                default: // Exit
+                    Console.WriteLine("END");
+                    break;
+            }
 
             Console.ReadLine();
         }
@@ -221,6 +225,32 @@ namespace CSharp_FinalConsoleApp
             return groupType;
         }
 
+        public static EmployeeType GetEmployeeType()
+        {
+            string employeeTypeStr;
+            EmployeeType employeeType;
+            do
+            {
+                Console.WriteLine("Enter the type of employee(Fulltime, Parttime, Adjunct):");
+                employeeTypeStr = Console.ReadLine();
+            } while (!Enum.TryParse(employeeTypeStr, out employeeType));
+
+            return employeeType;
+        }
+
+        public static DeparmentType GetEmployeeDeparmentType()
+        {
+            string deparmentTypeStr;
+            DeparmentType deparmentType;
+            do
+            {
+                Console.WriteLine("Enter the deparment type(IT, Maliyye, Marketing) of employee:");
+                deparmentTypeStr = Console.ReadLine();
+            } while (!Enum.TryParse(deparmentTypeStr, out deparmentType));
+
+            return deparmentType;
+        }
+
         public static void GetAvarageOfStudents(University university)
         {
             if(university.Students.Count > 0)
@@ -303,7 +333,69 @@ namespace CSharp_FinalConsoleApp
             }
         }
 
-        public static void AddEmployee()
+        public static string GetEmployeeNo()
+        {
+            Console.WriteLine("Enter employee no:");
+            string employeeNo = Console.ReadLine();
+
+            return employeeNo;
+        }
+
+        public static string GetEmployeePosition()
+        {
+            bool IsPositionTrue = false;
+            string position = "";
+            do
+            {
+                Console.WriteLine("Enter the position of employee");
+                bool IsWordContainsNumbers = false;
+                string postionStr = Console.ReadLine();
+
+                if (postionStr.Length > 2)
+                {
+                    Regex regex = new Regex("[^a-zA-Z]");
+                    if (regex.IsMatch(postionStr))
+                    {
+                        IsWordContainsNumbers = true;
+                        Console.WriteLine("Please just enter letters");
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    IsWordContainsNumbers = true;
+                    Console.WriteLine("Position must be contains minimum 3 letters.");
+                }
+
+                if (!IsWordContainsNumbers)
+                {
+                    position = postionStr;
+                }
+                IsPositionTrue = !IsWordContainsNumbers;
+
+
+            } while (!IsPositionTrue);
+
+            return position;
+        }
+
+        public static int GetEmployeeSalary()
+        {
+            string salaryStr;
+            int salary;
+            do
+            {
+                Console.WriteLine("Enter the salary of employee.");
+                salaryStr = Console.ReadLine();
+            } while (!int.TryParse(salaryStr, out salary));
+
+            return salary;
+        }
+
+        public static Employee AddEmployee()
         {
             Console.WriteLine("You select add employee;");
             bool IsFullNameIsTrue = false;
@@ -353,50 +445,44 @@ namespace CSharp_FinalConsoleApp
 
             } while (!IsFullNameIsTrue);
 
-            bool IsPositionTrue = false;
-            string position = "";
-            do
+            string position = GetEmployeePosition();
+
+            int salary = GetEmployeeSalary();
+
+            DeparmentType deparmentType = GetEmployeeDeparmentType();
+
+            EmployeeType employeeType = GetEmployeeType();
+
+            Employee employee = new Employee(fullName, position, salary, deparmentType, employeeType);
+
+            return employee;
+
+
+        }
+
+        public static void SearchEmployees(List<Employee> employees)
+        {
+            DeparmentType deparmentType = GetDeparmentTypeOfEmployee();
+
+            foreach (var emp in employees)
             {
-                Console.WriteLine("Enter the position of employee");
-                bool IsWordContainsNumbers = false;
-                string postionStr = Console.ReadLine();
-                
-                        if (postionStr.Length > 2)
-                        {
-                            Regex regex = new Regex("[^a-zA-Z]");
-                            if (regex.IsMatch(postionStr))
-                            {
-                                IsWordContainsNumbers = true;
-                                Console.WriteLine("Please just enter letters");
-                            }
-                            else
-                            {
-                                Console.WriteLine();
-                            }
-                        }
-                        else
-                        {
-                            IsWordContainsNumbers = true;
-                            Console.WriteLine("Position must be contains minimum 3 letters.");
-                        }
-               
-                if (!IsWordContainsNumbers)
+                if(emp.DeparmentName == deparmentType)
                 {
-                    position = postionStr;
+                    Console.WriteLine($"{emp.No}. {emp.FullName} - {emp.DeparmentName} - {emp.Salary}");
                 }
-                IsPositionTrue = !IsWordContainsNumbers;
+            }
+        }
 
-
-            } while (!IsPositionTrue);
-
-            string salaryStr;
-            int salary;
-            do
+        public static void SearchStudents(List<Student> students)
+        {
+            GroupType groupType = GetStudentGroupType();
+            foreach (var student in students)
             {
-                Console.WriteLine("Enter the salary of employee.");
-                salaryStr = Console.ReadLine();
-            } while (!int.TryParse(salaryStr, out salary));
-            
+                if(student.GroupType == groupType)
+                {
+                    Console.WriteLine($"{student.GroupNo} {student.FullName} {student.GroupType} - {student.Point}");
+                }
+            }
         }
     }
 }

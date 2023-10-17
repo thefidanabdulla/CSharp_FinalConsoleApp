@@ -16,6 +16,8 @@ namespace CSharp_FinalConsoleApp
 			Name = name;
 			WorkerLimit = workerLimit;
 			SalaryLimit = salaryLimit;
+            Employees = new List<Employee>();
+            Students = new List<Student>();
 		}
 
 		public void CalcSalaryAverage()

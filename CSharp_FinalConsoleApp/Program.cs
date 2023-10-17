@@ -7,59 +7,59 @@ namespace CSharp_FinalConsoleApp
     {
         static void Main(string[] args)
         {
+            
             University university = new University("Harvard", 3, 2500);
 
-
-            //Student student = new Student("Fidan Abdulla", 90, GroupType.Programming);
-            //Employee employee = new Employee("Indian Guy", "Developer", 4000, DeparmentType.IT, EmployeeType.Fulltime);
-
-            //university.AddStudent(student);
-            //university.AddEmployee(employee);
-
-            int selectedItem = ShowMenu();
-
-            switch (selectedItem)
+            while (true)
             {
-                case 1: // Show students
-                    ShowStudent(university.Students);
-                    break;
-                case 2: // Show students with group number
-                    ShowStudentByGroupType(university.Students);
-                    break;
-                case 3: // Add student
-                    university.AddStudent(AddStudent());
-                    break;
-                case 4: // Update student
-                    university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
-                    break;
-                case 5: // Show avarage point of students
-                    GetAvarageOfStudents(university);
-                    break;
-                case 6: // Show employees list
-                    ShowEmployees(university.Employees);
-                    break;
-                case 7: // Show employees by deparment
-                    ShowEmployeesByDepartment(university.Employees);
-                    break;
-                case 8: // Add employee
-                    university.AddEmployee(AddEmployee());
-                    break;
-                case 9: // Update employee
-                    university.UpdateEmployee(GetEmployeeNo(), GetEmployeePosition(), GetEmployeeSalary());
-                    break;
-                case 10: // Delete employee
-                    university.DeleteEmployee(GetEmployeeNo());
-                    break;
-                case 11: // Search employee
-                    SearchEmployees(university.Employees);
-                    break;
-                case 12: // Search student
-                    SearchStudents(university.Students);
-                    break;
-                default: // Exit
-                    Console.WriteLine("END");
-                    break;
+                int selectedItem = ShowMenu();
+
+                switch (selectedItem)
+                {
+                    case 1: // Show students
+                        ShowStudent(university.Students);
+            
+                        break;
+                    case 2: // Show students with group number
+                        ShowStudentByGroupType(university.Students);
+                        break;
+                    case 3: // Add student
+                        university.AddStudent(AddStudent());
+                        break;
+                    case 4: // Update student
+                        university.UpdateStudent(GetStudentGroupNo(), GetStudentGroupType());
+                        break;
+                    case 5: // Show avarage point of students
+                        GetAvarageOfStudents(university);
+                        break;
+                    case 6: // Show employees list
+                        ShowEmployees(university.Employees);
+                        break;
+                    case 7: // Show employees by deparment
+                        ShowEmployeesByDepartment(university.Employees);
+                        break;
+                    case 8: // Add employee
+                        university.AddEmployee(AddEmployee());
+                        break;
+                    case 9: // Update employee
+                        university.UpdateEmployee(GetEmployeeNo(), GetEmployeePosition(), GetEmployeeSalary());
+                        break;
+                    case 10: // Delete employee
+                        university.DeleteEmployee(GetEmployeeNo());
+                        break;
+                    case 11: // Search employee
+                        SearchEmployees(university.Employees);
+                        break;
+                    case 12: // Search student
+                        SearchStudents(university.Students);
+                        break;
+                    default: // Exit
+                        Console.WriteLine("END");
+                        return;
+                }
+
             }
+            
 
             Console.ReadLine();
         }
@@ -96,6 +96,7 @@ namespace CSharp_FinalConsoleApp
 
         public static void ShowStudent(List<Student> students)
         {
+            Console.WriteLine(students.Count);
             if(students.Count > 0)
             {
                 foreach (var student in students)
